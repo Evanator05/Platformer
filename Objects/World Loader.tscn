@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Code/World Loader.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 32 )
+
+[node name="World Loader" type="StaticBody2D"]
+script = ExtResource( 2 )
+
+[node name="Loader" type="Area2D" parent="."]
+
+[node name="World Loader Trigger" type="CollisionShape2D" parent="Loader"]
+position = Vector2( 8, 16 )
+scale = Vector2( 0.25, 0.5 )
+shape = SubResource( 1 )
+
+[node name="Unloader" type="Area2D" parent="."]
+
+[node name="World Unloader Trigger" type="CollisionShape2D" parent="Unloader"]
+position = Vector2( 24, 16 )
+scale = Vector2( 0.25, 0.5 )
+shape = SubResource( 2 )
+[connection signal="area_entered" from="Loader" to="." method="_on_Loader_area_entered"]
+[connection signal="body_entered" from="Loader" to="." method="_on_Loader_body_entered"]
+[connection signal="body_shape_entered" from="Loader" to="." method="_on_Loader_body_shape_entered"]
+[connection signal="area_entered" from="Unloader" to="." method="_on_Unloader_area_entered"]
+[connection signal="body_entered" from="Unloader" to="." method="_on_Unloader_body_entered"]

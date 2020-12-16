@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Lobby.gd" type="Script" id=1]
+
+[node name="Lobby" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ButtonHost" type="Button" parent="."]
+margin_left = 512.0
+margin_top = 288.0
+margin_right = 768.0
+margin_bottom = 352.0
+text = "Host"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonJoin" type="Button" parent="."]
+margin_left = 512.0
+margin_top = 512.0
+margin_right = 768.0
+margin_bottom = 576.0
+text = "Join"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HostIp" type="LineEdit" parent="."]
+margin_left = 512.0
+margin_top = 448.0
+margin_right = 768.0
+margin_bottom = 480.0
+align = 1
+placeholder_text = "Enter Host Ip"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HostPort" type="LineEdit" parent="."]
+margin_left = 512.0
+margin_top = 480.0
+margin_right = 768.0
+margin_bottom = 512.0
+align = 1
+placeholder_text = "Enter Host Port"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ServerPort" type="LineEdit" parent="."]
+margin_left = 512.0
+margin_top = 256.0
+margin_right = 768.0
+margin_bottom = 288.0
+align = 1
+placeholder_text = "Enter the server port"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="ButtonHost" to="." method="_on_ButtonHost_pressed"]
+[connection signal="pressed" from="ButtonJoin" to="." method="_on_ButtonJoin_pressed"]
+[connection signal="text_entered" from="HostIp" to="." method="_on_LineEdit_text_entered"]
